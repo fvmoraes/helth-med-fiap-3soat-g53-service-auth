@@ -15,9 +15,9 @@ func NewDoctorUseCase(repo domain.DoctorRepository) *DoctorUseCase {
 
 func (u *DoctorUseCase) Register(doctor *domain.Doctor) error {
 	err := u.repo.Create(doctor)
-	if err != nil {
-		return err
-	}
+	// if err != nil {
+	// 	return err
+	// }
 
 	// Publish the event
 	messaging.PublishDoctorRegistered(doctor)
