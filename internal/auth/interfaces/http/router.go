@@ -10,11 +10,11 @@ import (
 func InitRoutes(router *gin.Engine) {
 	doctorRepo := repository.NewDoctorRepository()
 	doctorUsecase := usecase.NewDoctorUseCase(doctorRepo)
-	doctorHandler := NewDoctorHandler(doctorUsecase)
+	doctorHandler := NewDoctorHandler(*doctorUsecase)
 
 	patientRepo := repository.NewPatientRepository()
 	patientUsecase := usecase.NewPatientUseCase(patientRepo)
-	patientHandler := NewPatientHandler(patientUsecase)
+	patientHandler := NewPatientHandler(*patientUsecase)
 
 	api := router.Group("/api")
 	{

@@ -9,11 +9,11 @@ type DoctorUseCase struct {
 	repo domain.DoctorRepository
 }
 
-func NewDoctorUseCase(repo domain.DoctorRepository) DoctorUseCase {
+func NewDoctorUseCase(repo domain.DoctorRepository) *DoctorUseCase {
 	return &DoctorUseCase{repo: repo}
 }
 
-func (u DoctorUseCase) Register(doctor domain.Doctor) error {
+func (u *DoctorUseCase) Register(doctor *domain.Doctor) error {
 	err := u.repo.Create(doctor)
 	if err != nil {
 		return err

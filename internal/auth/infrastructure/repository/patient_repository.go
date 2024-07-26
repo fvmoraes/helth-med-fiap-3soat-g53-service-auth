@@ -11,12 +11,12 @@ func NewPatientRepository() domain.PatientRepository {
 	return &PatientRepository{}
 }
 
-func (r PatientRepository) Create(patient domain.Patient) error {
+func (r *PatientRepository) Create(patient *domain.Patient) error {
 	return db.DB.Create(patient).Error
 }
 
-func (r PatientRepository) FindByEmail(email string) (domain.Patient, error) {
+func (r *PatientRepository) FindByEmail(email string) (*domain.Patient, error) {
 	var patient domain.Patient
-	result := db.DB.Where("email = ?", email).First(patient)
-	return patient, result.Error
+	result := db.DB.Where("email = ?", email).First(&patient)
+	return &patient, result.Error
 }
