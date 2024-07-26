@@ -9,7 +9,7 @@ import (
 	"github.com/streadway/amqp"
 )
 
-func PublishPatientRegistered(patient *domain.Patient) {
+func PublishPatientRegistered(patient domain.Patient) {
 	body, err := json.Marshal(patient)
 	if err != nil {
 		log.Fatalf("failed to marshal patient: %v", err)
