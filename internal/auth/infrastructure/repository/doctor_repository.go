@@ -18,5 +18,5 @@ func (r DoctorRepository) Create(doctor domain.Doctor) error {
 func (r DoctorRepository) FindByEmail(email string) (domain.Doctor, error) {
 	var doctor domain.Doctor
 	result := db.DB.Where("email = ?", email).First(doctor)
-	return &doctor, result.Error
+	return doctor, result.Error
 }
