@@ -1,327 +1,348 @@
 {
     "info": {
-        "name": "HelthMed Microservices",
-        "description": "Collection to test HelthMed microservices",
-        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+      "_postman_id": "e5b39d9b-d882-453b-bd78-4b07c0e29fa6",
+      "name": "Helthmed API",
+      "description": "Collection for Helthmed microservices.",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [
-        {
-            "name": "helthmed-auth",
-            "item": [
+      {
+        "name": "helthmed-auth",
+        "item": [
+          {
+            "name": "Create Doctor",
+            "request": {
+              "method": "POST",
+              "header": [
                 {
-                    "name": "Create Doctor",
-                    "request": {
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n  \"name\": \"Dr. John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"password123\"\n}"
-                        },
-                        "url": {
-                            "raw": "http://localhost:8080/api/doctors",
-                            "protocol": "http",
-                            "host": [
-                                "localhost"
-                            ],
-                            "port": "8080",
-                            "path": [
-                                "api",
-                                "doctors"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Authenticate Doctor",
-                    "request": {
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"password123\"\n}"
-                        },
-                        "url": {
-                            "raw": "http://localhost:8080/api/doctors/authenticate",
-                            "protocol": "http",
-                            "host": [
-                                "localhost"
-                            ],
-                            "port": "8080",
-                            "path": [
-                                "api",
-                                "doctors",
-                                "authenticate"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Create Patient",
-                    "request": {
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n  \"name\": \"Jane Doe\",\n  \"email\": \"jane.doe@example.com\",\n  \"password\": \"password123\"\n}"
-                        },
-                        "url": {
-                            "raw": "http://localhost:8080/api/patients",
-                            "protocol": "http",
-                            "host": [
-                                "localhost"
-                            ],
-                            "port": "8080",
-                            "path": [
-                                "api",
-                                "patients"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Authenticate Patient",
-                    "request": {
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n  \"email\": \"jane.doe@example.com\",\n  \"password\": \"password123\"\n}"
-                        },
-                        "url": {
-                            "raw": "http://localhost:8080/api/patients/authenticate",
-                            "protocol": "http",
-                            "host": [
-                                "localhost"
-                            ],
-                            "port": "8080",
-                            "path": [
-                                "api",
-                                "patients",
-                                "authenticate"
-                            ]
-                        }
-                    }
+                  "key": "Content-Type",
+                  "value": "application/json"
                 }
-            ]
-        },
-        {
-            "name": "helthmed-scheduling",
-            "item": [
-                {
-                    "name": "Create Appointment",
-                    "request": {
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n  \"doctor_id\": 1,\n  \"patient_id\": 1,\n  \"date_time\": \"2024-07-25T15:00:00Z\",\n  \"status\": \"scheduled\",\n  \"description\": \"Check-up\"\n}"
-                        },
-                        "url": {
-                            "raw": "http://localhost:8081/api/appointments",
-                            "protocol": "http",
-                            "host": [
-                                "localhost"
-                            ],
-                            "port": "8081",
-                            "path": [
-                                "api",
-                                "appointments"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Get Appointment",
-                    "request": {
-                        "method": "GET",
-                        "url": {
-                            "raw": "http://localhost:8081/api/appointments/1",
-                            "protocol": "http",
-                            "host": [
-                                "localhost"
-                            ],
-                            "port": "8081",
-                            "path": [
-                                "api",
-                                "appointments",
-                                "1"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Update Appointment",
-                    "request": {
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n  \"id\": 1,\n  \"doctor_id\": 1,\n  \"patient_id\": 1,\n  \"date_time\": \"2024-07-26T15:00:00Z\",\n  \"status\": \"rescheduled\",\n  \"description\": \"Rescheduled check-up\"\n}"
-                        },
-                        "url": {
-                            "raw": "http://localhost:8081/api/appointments",
-                            "protocol": "http",
-                            "host": [
-                                "localhost"
-                            ],
-                            "port": "8081",
-                            "path": [
-                                "api",
-                                "appointments"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Delete Appointment",
-                    "request": {
-                        "method": "DELETE",
-                        "url": {
-                            "raw": "http://localhost:8081/api/appointments/1",
-                            "protocol": "http",
-                            "host": [
-                                "localhost"
-                            ],
-                            "port": "8081",
-                            "path": [
-                                "api",
-                                "appointments",
-                                "1"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "helthmed-appointment",
-            "item": [
-                {
-                    "name": "Create Appointment",
-                    "request": {
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n  \"doctor_id\": 1,\n  \"patient_id\": 1,\n  \"date_time\": \"2024-07-25T15:00:00Z\",\n  \"status\": \"scheduled\",\n  \"description\": \"Routine check-up\",\n  \"link\": \"http://example.com/consultation/1\"\n}"
-                        },
-                        "url": {
-                            "raw": "http://localhost:8082/api/appointments",
-                            "protocol": "http",
-                            "host": [
-                                "localhost"
-                            ],
-                            "port": "8082",
-                            "path": [
-                                "api",
-                                "appointments"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Get Appointment",
-                    "request": {
-                        "method": "GET",
-                        "url": {
-                            "raw": "http://localhost:8082/api/appointments/1",
-                            "protocol": "http",
-                            "host": [
-                                "localhost"
-                            ],
-                            "port": "8082",
-                            "path": [
-                                "api",
-                                "appointments",
-                                "1"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Update Appointment",
-                    "request": {
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n  \"id\": 1,\n  \"doctor_id\": 1,\n  \"patient_id\": 1,\n  \"date_time\": \"2024-07-26T15:00:00Z\",\n  \"status\": \"completed\",\n  \"description\": \"Check-up completed\",\n  \"link\": \"http://example.com/consultation/1\"\n}"
-                        },
-                        "url": {
-                            "raw": "http://localhost:8082/api/appointments",
-                            "protocol": "http",
-                            "host": [
-                                "localhost"
-                            ],
-                            "port": "8082",
-                            "path": [
-                                "api",
-                                "appointments"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Delete Appointment",
-                    "request": {
-                        "method": "DELETE",
-                        "url": {
-                            "raw": "http://localhost:8082/api/appointments/1",
-                            "protocol": "http",
-                            "host": [
-                                "localhost"
-                            ],
-                            "port": "8082",
-                            "path": [
-                                "api",
-                                "appointments",
-                                "1"
-                            ]
-                        }
-                    },
-                    "response": []
-                  }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"name\": \"Dr. John Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"password\": \"securepassword\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/auth/doctors",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "8080",
+                "path": [
+                  "api",
+                  "auth",
+                  "doctors"
                 ]
               }
-            ]
+            },
+            "response": []
+          },
+          {
+            "name": "Create Patient",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"name\": \"Jane Doe\",\n    \"email\": \"jane.doe@example.com\",\n    \"password\": \"securepassword\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/auth/patients",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "8080",
+                "path": [
+                  "api",
+                  "auth",
+                  "patients"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Doctor Login",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"email\": \"john.doe@example.com\",\n    \"password\": \"securepassword\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/auth/doctors/login",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "8080",
+                "path": [
+                  "api",
+                  "auth",
+                  "doctors",
+                  "login"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Patient Login",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"email\": \"jane.doe@example.com\",\n    \"password\": \"securepassword\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/auth/patients/login",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "8080",
+                "path": [
+                  "api",
+                  "auth",
+                  "patients",
+                  "login"
+                ]
+              }
+            },
+            "response": []
           }
+        ]
+      },
+      {
+        "name": "helthmed-scheduling",
+        "item": [
+          {
+            "name": "Create Appointment",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"doctor_id\": 1,\n    \"patient_id\": 1,\n    \"datetime\": \"2024-07-30T10:00:00Z\",\n    \"status\": \"scheduled\",\n    \"description\": \"Routine check-up\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8081/api/appointments",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "8081",
+                "path": [
+                  "api",
+                  "appointments"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Appointment",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8081/api/appointments/:id",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "8081",
+                "path": [
+                  "api",
+                  "appointments",
+                  ":id"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Appointment",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"id\": 1,\n    \"doctor_id\": 1,\n    \"patient_id\": 1,\n    \"datetime\": \"2024-07-30T11:00:00Z\",\n    \"status\": \"rescheduled\",\n    \"description\": \"Routine check-up - rescheduled\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8081/api/appointments",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "8081",
+                "path": [
+                  "api",
+                  "appointments"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Appointment",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8081/api/appointments/:id",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "8081",
+                "path": [
+                  "api",
+                  "appointments",
+                  ":id"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "helthmed-appointment",
+        "item": [
+          {
+            "name": "Create Appointment",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"doctor_id\": 1,\n    \"patient_id\": 1,\n    \"datetime\": \"2024-07-30T10:00:00Z\",\n    \"status\": \"scheduled\",\n    \"description\": \"Routine check-up\",\n    \"link\": \"http://link.to/appointment\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8082/api/appointments",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "8082",
+                "path": [
+                  "api",
+                  "appointments"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Appointment",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8082/api/appointments/:id",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "8082",
+                "path": [
+                  "api",
+                  "appointments",
+                  ":id"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Appointment",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"id\": 1,\n    \"doctor_id\": 1,\n    \"patient_id\": 1,\n    \"datetime\": \"2024-07-30T11:00:00Z\",\n    \"status\": \"rescheduled\",\n    \"description\": \"Routine check-up - rescheduled\",\n    \"link\": \"http://link.to/appointment\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8082/api/appointments",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "8082",
+                "path": [
+                  "api",
+                  "appointments"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Appointment",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8082/api/appointments/:id",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "8082",
+                "path": [
+                  "api",
+                  "appointments",
+                  ":id"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+    ]
+  }
+  
