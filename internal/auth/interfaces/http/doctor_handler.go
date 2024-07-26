@@ -13,7 +13,7 @@ type DoctorHandler struct {
 }
 
 func NewDoctorHandler(u usecase.DoctorUseCase) *DoctorHandler {
-	return &DoctorHandler{usecase: u}
+	return DoctorHandler{usecase: u}
 }
 
 func (h DoctorHandler) Register(c *gin.Context) {
