@@ -10,7 +10,7 @@ type PatientUseCase struct {
 }
 
 func NewPatientUseCase(repo domain.PatientRepository) PatientUseCase {
-	return PatientUseCase{repo: repo}
+	return &PatientUseCase{repo: repo}
 }
 
 func (u PatientUseCase) Register(patient domain.Patient) error {
