@@ -9,7 +9,7 @@ type PatientUseCase struct {
 	repo domain.PatientRepository
 }
 
-func NewPatientUseCase(repo domain.PatientRepository) *PatientUseCase {
+func NewPatientUseCase(repo domain.PatientRepository) PatientUseCase {
 	return &PatientUseCase{repo: repo}
 }
 

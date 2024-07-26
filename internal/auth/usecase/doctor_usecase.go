@@ -9,7 +9,7 @@ type DoctorUseCase struct {
 	repo domain.DoctorRepository
 }
 
-func NewDoctorUseCase(repo domain.DoctorRepository) *DoctorUseCase {
+func NewDoctorUseCase(repo domain.DoctorRepository) DoctorUseCase {
 	return &DoctorUseCase{repo: repo}
 }
 
