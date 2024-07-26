@@ -12,7 +12,7 @@ type PatientHandler struct {
 	usecase usecase.PatientUseCase
 }
 
-func NewPatientHandler(u usecase.PatientUseCase) *PatientHandler {
+func NewPatientHandler(u usecase.PatientUseCase) PatientHandler {
 	return PatientHandler{usecase: u}
 }
 
